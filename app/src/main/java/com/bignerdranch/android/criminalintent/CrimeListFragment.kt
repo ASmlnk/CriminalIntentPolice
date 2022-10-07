@@ -1,7 +1,6 @@
 package com.bignerdranch.android.criminalintent
 
 import android.os.Bundle
-import android.system.Os.bind
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -67,7 +66,7 @@ class CrimeListFragment: Fragment() {
         }
 
         override fun onClick(v: View) {
-            Toast.makeText(context, "${crime.title} pressed!", Toast.LENGTH_SHORT).show()
+            makeText(context, "${crime.title} pressed!", Toast.LENGTH_SHORT).show()
         }
     }
     private  inner class CrimeHolderPolice(view: View): RecyclerView.ViewHolder(view), View.OnClickListener {
@@ -80,7 +79,7 @@ class CrimeListFragment: Fragment() {
         init {
             itemView.setOnClickListener(this)
             policeButton.setOnClickListener {
-                Toast.makeText(context,"Идет вызов полиции", Toast.LENGTH_SHORT).show()
+                makeText(context,"Идет вызов полиции", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -91,16 +90,16 @@ class CrimeListFragment: Fragment() {
         }
 
         override fun onClick(v: View) {
-            Toast.makeText(context, "${crime.title} pressed!", Toast.LENGTH_SHORT).show()
+            makeText(context, "${crime.title} pressed!", Toast.LENGTH_SHORT).show()
         }
     }
 
     private inner class CrimeAdapter(var crimes: List<Crime>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         override fun getItemViewType(position: Int): Int {
-            if (crimes[position].requiresPolice) {
-                return listItemCrimePolice
-        } else {
-            return listItemCrime
+            return if (crimes[position].requiresPolice) {
+                listItemCrimePolice
+            } else {
+                listItemCrime
             }
         }
 
