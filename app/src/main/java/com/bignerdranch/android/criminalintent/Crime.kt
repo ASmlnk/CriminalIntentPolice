@@ -2,9 +2,10 @@ package com.bignerdranch.android.criminalintent
 
 import java.util.*
 
+
 data class Crime(val id: UUID = UUID.randomUUID(),
                  var title: String = "",
-                 val date: Date = Date(),
+                 val date: Date = Calendar.getInstance().time,
                  var isSolved: Boolean = false,
                  var requiresPolice: Boolean = false) {
 }
