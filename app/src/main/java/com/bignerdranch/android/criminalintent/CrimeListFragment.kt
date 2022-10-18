@@ -114,7 +114,7 @@ class CrimeListFragment: Fragment() {
        // }
    // }
 
-    private inner class CrimeAdapter(var crimes: List<Crime>): RecyclerView.Adapter<CrimeHolder>() {
+    private inner class CrimeAdapter(var crimes: List<Crime>): RecyclerView.Adapter<CrimeHolder>() {  //RecyclerView.Adapter<RecyclerView.ViewHolder>
        // override fun getItemViewType(position: Int): Int {
           //  return if (crimes[position].requiresPolice) {
            //     listItemCrimePolice
